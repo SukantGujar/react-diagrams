@@ -1,9 +1,22 @@
-.storm-flow-canvas{
+.storm-diagrams-canvas{
 	position: relative;
 	flex-grow: 1;
 	display: flex;
 	cursor: move;
 	overflow: hidden;
+	
+	.point{
+		fill: rgba(white,0.5);
+		&.selected{
+			fill: rgb(0,192,255);
+		}
+	}
+	
+	.selector{
+		position: absolute;
+		background-color: rgba(0,192,255,0.2);
+		border: solid 2px rgb(0,192,255);
+	}
 	
 	svg{
 		position: absolute;
@@ -33,24 +46,23 @@
 		
 		&.selected{
 			>* {
-				border-color:rgb(0,192,255);
-				box-shadow: 0 0 10px rgba(0,192,255,0.5);
+				border-color:rgb(0,192,255) !important;
+				-webkit-filter: drop-shadow( 0 0 20px rgba(0,192,255,0.5));
 			}
 		}
 	}
 	
 	@keyframes dash {
 		from {
-		  stroke-dashoffset: 24;
+            stroke-dashoffset: 24;
 		}
 		to {
-		  stroke-dashoffset: 0;
+            stroke-dashoffset: 0;
 		}
 	  }
 	
 	path{
 		fill:none;
-		stroke:black;
 		pointer-events:all;
 		
 		&.selected{
@@ -75,7 +87,7 @@
 		font-family:Arial;
 		color: white;
 		border: solid 2px black;
-		overflow: hidden;
+		overflow: visible;
 		font-size: 11px;
 		box-shadow: 0 0 10px rgba(black,0.5);
 		
